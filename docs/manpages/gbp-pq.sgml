@@ -1,0 +1,145 @@
+<refentry id="gbp.man.gbp.pq">
+  <refentryinfo>
+    <address>
+      &dhemail;
+    </address>
+    <author>
+      &dhfirstname;
+      &dhsurname;
+    </author>
+  </refentryinfo>
+  <refmeta>
+   <refentrytitle>gbp-pq</refentrytitle>
+    &dhsection;
+  </refmeta>
+  <refnamediv>
+    <refname>&gbp-pq;</refname>
+
+    <refpurpose>Manage quilt patches on patch queue branches in git</refpurpose>
+  </refnamediv>
+  <refsynopsisdiv>
+    <cmdsynopsis>
+      &gbp-pq;
+      <arg><option>--verbose</option></arg>
+      <arg><option>--color=</option><replaceable>[auto|on|off]</replaceable></arg>
+      <arg><option>--[no-]patch-numbers</option></arg>
+      <group choice="plain">
+      <arg><option>export</option></arg>
+      <arg><option>import</option></arg>
+      <arg><option>rebase</option></arg>
+      <arg><option>drop</option></arg>
+      </group>
+    </cmdsynopsis>
+  </refsynopsisdiv>
+  <refsect1>
+    <title>DESCRIPTION</title>
+    <para>
+  &gbp-pq helps to manage quilt patches in Debian packages that are maintained
+  with &git-buildpackage;. This is especially useful with packages using the
+  3.0 (quilt) source format. With &gbp-pq; you can maintain the quilt patches
+  that should be applied to a package on a separate branch called patch-queue
+  branch. So if your Debian package lives on <replaceable>master</replaceable>
+  the associated patch-queue branch will be called
+  <replaceable>patch-queue/master</replaceable>.
+    </para>
+    <para>
+   See <ulink url="https://honk.sigxcpu.org/piki/development/debian_packages_in_git/"></ulink> for example workflows.
+    </para>
+  </refsect1>
+  <refsect1>
+    <title>ACTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term><option>import</option>
+        </term>
+        <listitem>
+	  <para>
+	Create a patch queue branch from quilt patches in debian/patches/ that
+	are listed in debian/patches/series.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>export</option>
+        </term>
+        <listitem>
+	  <para>
+	Export the patches on the patch-queue branch associated to the current
+	branch into a quilt patch series in debian/patches/ and update the
+	series file.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>rebase</option>
+        </term>
+        <listitem>
+	  <para>
+	Switch to the patch-queue branch associated to the current branch and
+	rebase it against the current branch.
+	  </para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>drop</option>
+        </term>
+        <listitem>
+	  <para>
+	Drop (delete) the patch queue associated to the current branch. So if
+	you're on branch <replaceable>foo</replaceable> this would drop branch
+	<replaceable>patch-queue/foo</replaceable>.
+	  </para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1>
+    <title>OPTIONS</title>
+    <variablelist>
+      <varlistentry>
+        <term><option>--verbose</option></term>
+	<term><option>-v</option></term>
+        <listitem>
+          <para>verbose execution</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--color=</option><replaceable>[auto|on|off]</replaceable>
+        </term>
+        <listitem>
+          <para>Wheter to use colored output.</para>
+        </listitem>
+      </varlistentry>
+      <varlistentry>
+        <term><option>--[no-]patch-numbers</option>
+        </term>
+        <listitem>
+          <para>Whether the patch files should start with a number or not.</para>
+        </listitem>
+      </varlistentry>
+    </variablelist>
+  </refsect1>
+  <refsect1>
+    <title>SEE ALSO</title>
+    <para>
+      <citerefentry>
+        <refentrytitle>git-buildpackage</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>dpkg-source</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry>,
+      <citerefentry>
+        <refentrytitle>quilt</refentrytitle>
+        <manvolnum>1</manvolnum>
+      </citerefentry>,
+    </para>
+  </refsect1>
+  <refsect1>
+    <title>AUTHOR</title>
+
+    <para>&dhusername; &dhemail;</para>
+
+  </refsect1>
+</refentry>

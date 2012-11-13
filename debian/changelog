@@ -1,0 +1,1647 @@
+git-buildpackage (0.5.19ubuntu1) natty; urgency=low
+
+  * Merge from debian unstable. Remaining changes:
+    - Disable tests for now as pychecker crashes with python 2.7
+      (Closes: #692945).
+
+ -- Angel Abad <angelabad@ubuntu.com>  Sat, 12 Feb 2011 12:21:24 +0100
+
+git-buildpackage (0.5.19) unstable; urgency=low
+
+  [ Jonathan Nieder ]
+  * [7f00d39] git-import-dsc: improve error message when upstream branch is
+    missing
+
+  [ Guido Günther ]
+  * [b9acbf9] logging: don't use color inside Emacs's comint shell
+    (Closes: #612384)
+  * [14fdbce] gbp-clone: reparse the configuration after cloning the
+    repository (Closes: #607936)
+  * [d21506e] git-import-dscs: really use git-import-dsc from the same
+    location as git-import-dscs
+  * [b92b88f] git-import-dsc: auto create upstream branch if it's missing.
+    This allows to mass import old history of packages that were native and
+    switched to non-native later.
+  * [0363f47] git-import-dsc: better explain missing upstream branch.
+    Thanks to Jonathan Nieder for the suggestion. (Closes: #610379)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 11 Feb 2011 18:20:36 +0100
+
+git-buildpackage (0.5.18ubuntu1) natty; urgency=low
+
+  * Merge with Debian, remaining changes:
+    + Disable tests for now as pychecker crashes with python 2.7
+      (bug #692945).
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sun, 23 Jan 2011 18:23:08 +0200
+
+git-buildpackage (0.5.18) experimental; urgency=low
+
+  [ Guido Günther ]
+  * [0b2b869] git-buildpackage: fix fallback to auto detection for unknown
+    compression types
+  * [b7136f3] gbp-pull: Adjust incorrect logging level
+  * [d8d2347] git-import-dscs: Ignore debsnap download errors to cope with
+    binNMUs. Based on a patch from Jonathan Nieder. (Closes: #610376)
+  * [e1661bd] git-buildpackage: print the "Looking for tarball..." message at
+    debug level.  There's no need to print two messages in the default logging
+    level.
+  * [9054ae1] git.force_head: quiet git reset so we don't see pointless 'HEAD
+    is now at ...' messages during imports.
+  * [d36077c] Add --author-is-comitter and --author-date-is-comitter-date
+    commandline options (Closes: #610381)
+
+  [ Jonathan Nieder ]
+  * [f2f03b7] git-import-dscs: Fix --debsnap doc and option error handling
+    (Closes: #610368)
+  * [2984d27] git-import-dsc doc updates for new options --author-is-committer
+    and --author-date-is-committer-date
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 23 Jan 2011 14:52:25 +0100
+
+git-buildpackage (0.5.17ubuntu1) natty; urgency=low
+
+  * Merge with Debian, remaining changes:
+    + Disable tests for now as pychecker crashes with python 2.7
+      (bug #692945).
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Sat, 22 Jan 2011 11:53:15 +0200
+
+git-buildpackage (0.5.17) experimental; urgency=low
+
+  * [244c1d2] gbp-create-remote-repo: allow for repository names without
+    substitutions
+  * [ebc67f3] gbp-create-remote-repo: get repository name from
+    debian/changelog if possible
+  * [eb9c0e6] git-create-remote-repo: don't hardcode 'origin' as remote.  This
+    makes it possible to create different remote repos from within the same
+    repository.
+  * [b383c96] Document --remote-name
+  * [8d5f78a] Use the latest commit instead of the earliest one
+    when guessing the compression type for pristine-tar.
+    Thanks to Andreas Rottmann for the detailed report (Closes: #609980)
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 15 Jan 2011 13:46:36 +0100
+
+git-buildpackage (0.5.16ubuntu1) natty; urgency=low
+
+  * Merge with Debian, remaining changes:
+    + Disable tests for now as pychecker crashes with python 2.7
+      (bug #692945).
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Tue, 11 Jan 2011 20:21:28 +0200
+
+git-buildpackage (0.5.16) experimental; urgency=low
+
+  * [b9aae05] git-import-orig: Make --[no-]merge a proper option so it can be
+    configured via gbp.conf.
+  * [05d9ecb] gbp-create-remote-repo: allow to set up remote branch tracking
+  * [03f3d75] Make gbp-create-remote-repo a first class citizen. Add manpage,
+    move into path, add bash completion
+  * [5ca57cd] git-import-dsc: also set the commit date to the changelog date
+    when importing old history. This makes sure we get proper sorting with
+    e.g. gitk.
+    Thanks to Rob Browning for the hint and explanation
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 11 Jan 2011 07:48:02 +0100
+
+git-buildpackage (0.5.15) experimental; urgency=low
+
+  * [b770493] git-buildpackage: Add support for sending notifications via
+    libnotify after the build finished.
+  * [bfb233a] git-dch: don't add empty changelog entries with "Git-Dch: Ignore"
+  * [ab06072] Require python 2.6 since we use a context manager
+  * [79ed2e0] Use tristate option for --color=value this allows true and false
+    as alias for on and off.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 08 Jan 2011 19:09:41 +0100
+
+git-buildpackage (0.5.14ubuntu1) natty; urgency=low
+
+  * Merge with Debian, remaining changes:
+    + Disable tests for now as pychecker crashes with python 2.7
+      (bug #692945).
+
+ -- أحمد المحمودي (Ahmed El-Mahmoudy) <aelmahmoudy@sabily.org>  Fri, 07 Jan 2011 18:38:03 +0200
+
+git-buildpackage (0.5.14) experimental; urgency=low
+
+  [ Guido Günther ]
+  * [2a5df0a] docs/gbp-clone: better document --all
+  * [c3c76ac] docs/gbp-pull: Better document --force and --redo-pq
+  * [b23f05b] docs/git-import-dscs: document --debsnap to fetch from
+    snapshots.debian.org
+  * [8040433] docs/gbp-pq: fix typo in manpage.
+    Thanks to Emilio Pozuelo (Closes: #609166)
+  * [8cabb0e] Add gbp-{pull,clone,pq} examples to gbp.conf
+  * [eac621a] Add generated files to .gitignore
+  * [91b0aa8] pychecker warning cleanups (mostly unused variables and imports)
+  * [63d9624] Change dirs declaration to avoid false positives from pychecker.
+    See #608153
+  * [bd2ac3a] Enable pychecker warnings
+  * [67bdb1f] git-import-dscs: Remove duplicate log message
+  * [d523065] command_wrappers: Use logging functions
+  * [9411f76] bash completion: parse short options too
+  * [7374d00] bash completion: also complete on tags
+  * [25677d0] bash completion: add completion for gbp-{pq,pull,clone}
+  * [3f05eba] bash completion: add support for tristate options like --color
+  * [d9ed286] bash completion: avoid space after options taking an argument.
+    This makes branch and tag completion more useful.
+
+  [ Yaroslav Halchenko ]
+  * [2558ea7] git-import-dscs: Use git-import-dsc from the same location as
+    git-import-dscs.  With hardcoded path it is impossible to use
+    git-import-dscs directly from the repository while developing both tools
+  * [31b4854] Spit out debug message in __git_inout
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 07 Jan 2011 09:58:39 +0100
+
+git-buildpackage (0.5.13ubuntu1) natty; urgency=low
+
+  * Disable tests for now as pychecker crashes with python 2.7 (bug #692945).
+
+ -- Felix Geyer <debfx-pkg@fobos.de>  Tue, 04 Jan 2011 12:48:41 +0100
+
+git-buildpackage (0.5.13) experimental; urgency=low
+
+  * [7e697a9] Update the repo after the first import so master matches the
+    debian branch. Thanks to Rob Browning for the testcase
+  * [83b9235] Initialize Logger.get_color{,off} so we can print errors before
+    the option parsing finished. (Closes: #608004)
+  * [b1f081a] Rewrite gbp-pq in python so we get consistent logging and
+    debugging options.
+  * [5a312db] Allow to drop numbers from patch names via --no-patch-numbers
+    so patch names remain constant when interim patches are dropped.
+    (Closes: #592129)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 27 Dec 2010 00:05:30 +0100
+
+git-buildpackage (0.5.12) experimental; urgency=low
+
+  [ Guido Günther ]
+  * [3e0d663] Also allow for 'issue' as bugnumber prefix as used in Grml.
+  * [4323487] Fix off by one error by not counting. Thanks to Olivier Aubert
+    for pointing this out
+  * [5ace5eb] Better wrap thanks and closes (Closes: #529332)
+  * [cf98258] Move Debian tag with --ignore-same-version
+    so the import doesn't fail. (Closes: #606204)
+  * [29feba8] Change --ignore-same-version to --allow-same-version
+    and properly document it. This matches the defaults we had since ages.
+  * [3b858a9] Fix debug string formatting (Closes: #606771)
+  * [8a46f74] Favor ARCH environment variable over dpkg's architecture
+    based on a patch by Jacob Helwig. (Closes: #607318)
+  * [2c94f9d] Add option to open editor (Closes: #565553)
+
+  [ Rob Browning ]
+  * [98b034c] Remove unused commit_msg variable from git-dch.
+  * [5b7b0f1] Use "log -n1" instead of "show" to retrieve commit log
+    information.
+  * [e875704] Add "*.pyc" to .gitignore.
+  * [3640569] Add git-dch --customizations FILE to allow changelog entry
+    customization:
+    Add support for git-dch --customizations FILE. FILE must be Python code,
+    and for now, the only useful thing it can do is define a
+    format_changelog_entry() function which will override
+    kgbp.dch.format_changelog_entry().
+    Add a new customization option group for --customizations.  Create a
+    gbp.dch module and move the changelog entry formatting functions there.
+    Create separate procedures to handle extracting metadata from the git log,
+    and use them in the default format_changelog_entry(). These functions are
+    also available for use by custom formatters: extract_git_dch_cmds(),
+    filter_ignore_rx_matches(), extract_bts_cmds(), extract_thanks_info(), etc.
+    Add a GitRepository.get_commit_info() method, and use it in git-dch
+    parse_commit(). (Closes: #536719)
+  * [d12a32f] Add --multimaint support to git-dch
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 20 Dec 2010 16:31:12 +0100
+
+git-buildpackage (0.5.11) unstable; urgency=low
+
+  [ Matthijs Kooijman ]
+  * [083834b] git-import-orig: Ask the user for the package name and version
+    if needed.  If there is no debian/changelog to find the source package
+    name, and/or the upstream version was not given on the commandline, ask
+    the user for them. The values guessed from the original tarball name are
+    offered as defaults to the user. Previously, this guessed version was used
+    without confirmation. (Closes: #479172)
+  * [ee0e9ff] Let git-import-orig find the changelog when not on the
+    debian-branch. When no changelog file is available in the checkout, look
+    for the changelog in the repository.
+
+  [ Guido Günther ]
+  * [beaee6e] git-import-orig: Add --[no]-interactive to avoid prompts on
+    import.
+  * [223b97a] Fall back to source only changes file if the architecture one
+    doesn't exist. (Closes: #593598)
+  * [a6f2974] Makes uscan options explicit - thanks to Chris Butler.
+    (Closes: #596003)
+  * [ea9a656] Don't put generated gbp/gbp_version.py into the source package.
+  * [c385e76] Fix download location - thanks to Rob Browning.
+  * [7e79bcd] Add logging functions. This allows us to color and prefix the
+    output. Coloring can be disanbled via the --color option.
+    (Closes: #544332)
+
+  [ Yaroslav Halchenko ]
+  * [d62fadd] Document --git-overlay. (Closes: #598530)
+
+  [ Benoît Knecht ]
+  * [dfe9104] Expand environment variables and '~' in gbp.conf paths.
+    Options that expect a path in gbp.conf can now be given as
+    '~/path/to/dir' or '$HOME/path/to/dir' (or any other environment
+    variable for that matter). (Closes: #545692)
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 16 Nov 2010 13:27:41 +0100
+
+git-buildpackage (0.5.10) unstable; urgency=low
+
+  * [4b23f2d] Warn if not invoked by git-buildpackage git-pbuilder is
+    supposed to be invoked by git-buildpackage. Otherwise things like
+    export-dir aren't respected. (Closes: #596625)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 27 Sep 2010 09:46:52 +0200
+
+git-buildpackage (0.5.9) experimental; urgency=low
+
+  * [6a200ad] Resync with git-pbuilder 0.16 (Closes: #595055)
+  * [ed97b84] Add --git-arch option
+  * [257a3e1] Switch to debian branch before forcing the HEAD update
+    otherwise we might forward the current branch to another branch's
+    ref - thanks to Rolf Leggewie for the testcase
+  * [af97781] Avoid unnecessary branch switch when fixing the previous
+    issues. (LP: #637286)
+  * [70c5b22] Improve compression format detection by checking if a
+    version is already on the pristine-tar branch and use it's
+    compression type if found. (LP: #615212)
+  * [02b1a03] Don't fail on missing debian/rules. (LP: #638371)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 17 Sep 2010 10:42:32 +0200
+
+git-buildpackage (0.5.8) experimental; urgency=low
+
+  [ Guido Günther ]
+  * [a09cce7] gbp-svn-tag: Simple helper to tag a version if using git-svn
+  * [3262621] gbp-pull: Properly handle local only changes as no update needed
+  * [b1bd417] git-import-dsc: Remove file and commit ambiguity
+  * [65bf135] git-dch: Fix exception name so we don't fail on repos without
+    tags.
+
+  [ Svend Sorensen ]
+  * [39b1a07] Fix --git-cleaner option name in git-buildpackage man page
+    (Closes: #594612)
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 01 Sep 2010 10:56:34 +0200
+
+git-buildpackage (0.5.7) experimental; urgency=low
+
+  * [07c11d5] git-pbuilder: Only output dist if set.
+  * [3d97dfe] git-pbuilder: Check for cowbuilder. The cowbuilder package
+    depends on pbuilder so this is enough.
+  * [7f07ed6] Recommend cowbuilder
+  * [0a081d4] Update copyright file
+  * [af3dc21] Don't fail on gbp_version import errors. This makes it easier to
+    test from the source tree without starting a build first.
+  * [c0dad1a] git-import-dsc: Catch KeyboardInterrupt
+  * [cc557e7] git-dch: Check for greater not unequal when looking for a new
+    upstream version
+  * [74aa351] git-buildpackage: Use --pretty=format: instead of --format= to
+    support the git version in Lenny.
+
+ -- Guido Günther <agx@sigxcpu.org>  Wed, 18 Aug 2010 18:18:35 +0200
+
+git-buildpackage (0.5.6) experimental; urgency=low
+
+  * [1d06128] git-pbuilder: When creating a new base image don't fail if it's
+    not there already.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 14 Aug 2010 01:26:42 +0200
+
+git-buildpackage (0.5.5) experimental; urgency=low
+
+  * [36edd3c] git-dch: Support --nmu, --bpo and --qa. (Closes: #561535)
+  * [7200035] git-dch: Pass dch_options to all calls of spawn_dch. This fixes
+    the problem of an empty [maintainer] at the end of the changelog section.
+    - thanks to Michael Prokop
+  * [8d33c92] git-dch: Guess changelog version number from upstream version
+  * [595d6d8] git-buildpackage: Add --git-pbuilder and --git-dist=<dist>
+    options
+  * [b193936] docs: Use git-pbuilder in the pbuilder chapter
+  * [61e0c3c] docs: Simplify example using --download
+  * [76b16df] docs: Build and install git-pbuilder manpage
+  * [67287d0] Add git-pbuilder (Closes: #583078) - thanks to Russ Allbery
+  * [bc52725] Deprecate our own pbuilder helpers
+  * [3c6bbd0] Better version number replacement (Closes: #534494)
+  * [55fdbc6] Check for legacy tags where necessary.
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 12 Aug 2010 23:35:30 +0200
+
+git-buildpackage (0.5.4) unstable; urgency=low
+
+  * [88afa61] git-dch: Pass --multimaint-merge on to dch (Closes: #586165)
+  * [e8b6b49] gbp-pq: Use the maintainer of the Debian package as fallback
+    patch author
+  * [f63c4ed] git-import-dsc: Don't add superfluous parents to imports on the
+    Debian branch. Only set a parent on the first import per upstream version.
+  * [af2a435] gbp-pull: Don't update already up to date branches
+  * [407b614] docs: Drop git_load_dirs reference we're not using it anymore.
+  * [dbc7fe3] docs: We don't only support .gz tarballs
+  * [34d6d84] Bump standards version
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 06 Aug 2010 17:07:47 -0400
+
+git-buildpackage (0.5.3) unstable; urgency=low
+
+  * [2808207] git-dch: Terminate the patch description with a dot in case of
+    multiline commits where the second line starts with a uppercase letter.
+    Heavily based on a patch by Jonathan Nieder.
+  * [47463da] Better document the default config file.
+  * [57b2abf] git-dch: Set author information from git on --release when using
+    --git-author - thanks to Boleslaw Tokarski for his feedback.
+  * [ad2416e] examples/zeitgeist-git: Adjust for zeitgeist 0.4.0.
+  * [8676193] examples/gbp-create-remote-repos: Simple helper to create remote
+    repos based on dom-new-git-repo from the OCaml maintainers as well as
+    aa-create-repo. (Closes: #540185)
+  * [3ed1a5c] git-import-dscs: Fetch all snapshots from snapshots.debian.org
+    using debsnap and import them (Closes: #591218)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 02 Aug 2010 22:10:18 +0200
+
+git-buildpackage (0.5.2) unstable; urgency=low
+
+  * Upload to unstable
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 20 Jul 2010 22:13:57 +0200
+
+git-buildpackage (0.5.1) experimental; urgency=low
+
+  [ Jonathan Nieder ]
+  * [a650ce3] Add prebuild hook Can be used to add an upstream changelog
+    generated from the git repository to the build dir. (Closes: #587652)
+
+  [ Guido Günther ]
+  * [9b8bc60] Bump standards version
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 20 Jul 2010 21:31:30 +0200
+
+git-buildpackage (0.5.0) experimental; urgency=low
+
+  [ Guido Günther ]
+  * [bd1ad03] Drop dependency on python-dev since it's not needed for arch all
+    packages. Depend on python instead.
+  * [077bdb0] git-buildpackage: Add compression=auto to guess compression type
+    of upstream tarball from pristine-tar branch. This is now the default.
+    (Closes: #566993)
+  * [3bcb1ef] Abort if upstream tarball contains git metadata
+    (Closes: #571717)
+  * [24410e9] docs: Mention patch-queue branches
+  * [877166c] docs: Don't document Git-Dch: twice. Thanks to Matthijs Kooijman
+    (Closes: #587456)
+  * [719f1ae] git-import-dsc: Use commit_dir to write directly commit the
+    content of the unpacked orig tarball and the patched Debian tree instead
+    of using replace_tree. Thanks to Roger Leigh for his nice explantion on
+    howto do this.
+    (Closes: #506211, #588061)
+  * [fc270b5] git-import-dsc: Drop --no-merge We don't invoke 'git merge'
+    anymore.
+  * [d35ee45] git-import-orig: Use commit_dir instead of replace_tree
+    (Closes: #526022, #569031)
+
+  [ Torsten Werner ]
+  * [d3c0901] fix typo in gbp-pq
+    (Closes: #587673)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 05 Jul 2010 21:58:14 +0200
+
+git-buildpackage (0.4.68) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [88c2d6d] gbp-pq export: Instead of failing switch branch if on a
+    patch-queue branch.
+  * [65ea70f] gbp-pq: Use run_git to catch git errors
+  * [488f16c] No need to assign repo
+  * [7f0b81f] Strip traling slashes from repo path (Closes: #584775)
+  * [a831329] Add 'ignore-branch' option This disables the 'current branch' ==
+    'debian-branch' check.
+  * [5988e20] Add 'ignore-branch' option This disables the 'current branch' ==
+    'debian-branch' check.
+
+  [ Christian Kastner ]
+  * [2173157] Add option --git-force-create to force tarball creation
+    (Closes: #519297)
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 19 Jun 2010 16:07:05 +0200
+
+git-buildpackage (0.4.67) unstable; urgency=low
+
+  * [6427e2a] git-import-dsc: Add --download option. This allows to directly
+    import source packages either via git-import-dsc --download <pkg> or
+    git-import-dsc --download <url-to-dsc> The former uses "apt-get soure" the
+    later "dget". (Closes: #510036)
+  * [823f49f] gbp-pull: Document exit codes
+  * [9fb419f] git-import-orig: Document --uscan
+  * [3473689] git-buildpackage: Document --git-compression and
+    --git-compression-level
+  * [f31c82d] git-dch: Document 'Git-Dch: Ignore' and 'Git-Dch: Short'
+  * [65b9e0d] gbp-pq: Improve manpage and help output
+  * [33e56ca] git-import-dsc: Document --download
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 15 May 2010 14:01:03 +0200
+
+git-buildpackage (0.4.66) unstable; urgency=low
+
+  [ Paul Menzel ]
+  * [1072473] docs/manpages/git-dch.sgml: Consistency fixes and typo. 
+     • Start sentences with capital letter and end them with a full stop. 
+     • s/enty/entry/
+
+  [ David Paleino ]
+  * [49e31b1] Add --uscan command-line option Launch uscan and use the
+    tarball, if there's a new upstream version. (Closes: #577394)
+
+  [ Guido Günther ]
+  * [0826409] Bump standards version
+  * [6646d63] Depend on git | git-core (Closes: #577731)
+  * [f7a085a] Make --uscan more robust by not throwing exceptions onto the
+    console and catching download errors.
+  * [9521e6c] Fix typo - thanks to Paul Menzel
+  * [a2dd58d] gbp-pull: Requests for non fast-forward updates should exit with
+    a non-zero result (Closes: #579997)
+  * [b0100b6] Add simple Zeitgist data provider
+  * [5aefe29] Add 'Git-Dch: Short' tag to changelog parser This omits
+    the long description of the commit from the changelog.
+
+ -- Guido Günther <agx@sigxcpu.org>  Tue, 04 May 2010 09:08:40 +0200
+
+git-buildpackage (0.4.65) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [07d54ef] gbp-add-patch: Strip path from patchname and handle missing
+    files gracefully.
+  * [a7fe7c4] Add basic bash completion for git-buildpackage (Closes: #567313)
+    - thanks to Siegfried-Angel Gevatter
+  * [aec185f] Add gbp-{clone,pull,pq} to description
+  * [24ac91c] bash-completion: Add git-dch, git-import-{orig,dsc} and tab
+    completion for branch names.
+  * [cbc0577] Add GitRepository.get_remotes() to easily query remote branches
+  * [4654425] gbp-clone: Add --all to track all remote branches
+
+  [ Matthijs Kooijman ]
+  * [2874c23] Make the commit message for upstream imports configurable.
+    This adds the import-msg commandline and configuration file option
+    to change the commit message. (Closes: #474457)
+
+  [ Jon Bernard ]
+  * [ad9b7f5] Prevent git-add-patch from being gzip'd
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 13 Feb 2010 12:37:41 +0100
+
+git-buildpackage (0.4.64) unstable; urgency=low
+
+  * [ab40623] Add gbp-add-patch to easily commit patches from debian/patches
+  * [34c1c43] Allow to skip imports of same version Based on a patch by
+    Christoph Göhre.
+  * [ea6311e] DscFile: Parse name of debian.tar.gz
+  * [237a547] Import version 3 source format (Closes: #552771)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 25 Jan 2010 22:08:26 +0100
+
+git-buildpackage (0.4.63) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [a0c7a91] docs: fix git-init call - thanks to Pietro Battiston
+  * [02ab603] docs: Drop superfluous upstream branch creation
+  * [e339c70] gbp: Make sure we drop the generated custom index file 
+              (Closes: #561454)
+  * [d436612] git-dch: Add body regex filter (Closes: #544238)
+  * [cf45595] gbp-{pull,clone}: Don't hardcode pristine-tar branch
+  * [0eb4580] gbp: Allow to set compression type (Closes: #554520)
+  * [7ad35fb] tests: Add other gbp-* commands
+  * [f1f3d8e] tests: Add unpack test
+
+  [ Matthijs Kooijman ]
+  * [725b9d3] git-dch: Add support for a Git-Dch: Ignore metaheader.
+              (Closes: #561346)
+  * [e54b7bf] git-dch: There was a second use of parse_commit. Both uses of
+    parse_commit now support the None return value. The shortlog_to_dch
+    function is now superfluous and was removed.
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 26 Dec 2009 18:17:39 +0100
+
+git-buildpackage (0.4.62) unstable; urgency=low
+
+  * [dce995d] Improve error handling on broken dsc files. (Closes: #560689)
+  * [bcdd6b5] Improve error message when trying to import 3.0 source format
+    packages until we properly support them.
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 14 Dec 2009 09:15:49 +0100
+
+git-buildpackage (0.4.61) unstable; urgency=low
+
+  * [fc96f75] switch to 3.0 (native) source format
+  * [bf258de] use git;// instead of http://
+  * [043c75a] Make gbp-clone, gbp-pull and gbp-pq first class citizens
+    by moving them from examples/ to /usr/bin/
+  * [c5e4148] Add documentation for gbp-{pg,pull.clone}
+  * [06059df] Make the default build command 3.x source format safe Instead of
+    passing "-i\.git/ -I.git" to debuild use "-i -I". This makes sure we use
+    the default behaviour of dpkg-source. (Closes: #553079)
+  * [ecec4d5] gbp-pull: Don't fail if no tracking branch exists.
+  * [5539417] cleanup symlinks
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 26 Nov 2009 19:05:53 +0100
+
+git-buildpackage (0.4.60) unstable; urgency=low
+
+  [ Guido Günther ]
+  * gbp-pull: 
+      * [9960f24] check for clean repo
+      * [9d190a5] add --redo-pq so a "gbp-pull --redo-pq" also refreshes the
+        patch-queue branch
+  * gbp-pq:
+      * [526fc0c] add option to drop patch-queue branch
+      * [3bf8288] Don't fail when series file is missing. Create an empty
+        patch-queue branch instead.
+  * git-import-orig:
+      * [eef5eca] Use "imported" instead of "merged". This way we don't claim
+        we merged something but we possibly didn't. (Closes: #545908)
+  * debian/rules:
+      * [5372050] Don't compress the example scripts
+  * docs:
+      * [4da84c0] document --git-retag
+
+  [ Charles Plessy ]
+  * [509c1c3] Stefano Zacchiroli’s workaround for creating empty
+    upstream branches. (See ‘http://bugs.debian.org/cgi-
+    bin/bugreport.cgi?bug=471560’)
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 07 Nov 2009 15:30:49 +0100
+
+git-buildpackage (0.4.59) unstable; urgency=low
+
+  * new tools:
+      * [9ccbcd2] add examples/gbp-pull. Addresses another part of #540185.
+  * git-buildpackage:
+      * [38fcab2] add --git-retag (Closes: #521329)
+  * git-import-orig:
+      * [ee3209c] Drop superfluous argument. Fixes TypeError on merge failures.
+        (Closes: #549885)
+  * examples/gbp-clone:
+      * [1d8fb9d] gbp-clone: import Command too. Fixes "--verbose".
+  * gbp module:
+      * [db7cbab] add GitFetch
+      * [6f03267] add GitRepository.get_merge_branch()
+      * [b543f67] add GitRepository.is_fast_forward()
+      * [5bf8201] move FastImport into gbp/git.py
+  * docs:
+      * [189ff52] fix link to "homepage"
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 24 Oct 2009 21:31:08 +0200
+
+git-buildpackage (0.4.58) unstable; urgency=low
+
+  * [78bcf5e] catch config file parse errors (Closes: #545690)
+  * [8a9b813] docs: mention pristine-tar branch and pristine-tar
+  * [260afa1] docs: add missing --git- prefix
+  * [af4265e] git-dch: export GBP_BRANCH to postimport hook so we can pass the
+    current branch to git-dch
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 05 Oct 2009 18:16:10 +0200
+
+git-buildpackage (0.4.57) unstable; urgency=low
+
+  * new tools:
+      * [13316be] Add gbp-clone to examples. Using this to clone
+        repositories will automatically track the remote branches used by
+        gbp. Addresses parts of #540185.
+  * git-dch:
+      * [d42ed40] Trim commit display.
+      * [a335e04] Catch gbp.deb.NoChangelogError.
+      * [98a9b88] Add changelog section if current topmost version is already
+        tagged. This makes sure we add a new changelog section after a
+        release. This was broken due to 016318.
+  * git-import-orig:
+       * [dcbe091] Use option groups for nicer --help output
+       * [ee6c238] Add postimport hook for git-import-orig Allows to run git-
+         dch after import. Drop the dch invocation and warn when --no-dch gets
+         passed on the commandline. (Closes: #520355)
+       * [aecb9b4] NEWS: --no-dch is no more (Closes: #540750)
+  * git-import-dsc:
+       * [dcbe091] Use option groups for nicer --help output
+  * packaging:
+      * [4f82dfb] Honor DEB_BUILD_OPTIONS=nocheck
+      * [29cacc0] Run doctests with nose
+      * [1f8abec] Bump standards version
+      * [c84fd78] TODO list maintained in the wiki
+  * gbp module:
+      * [715d42a] Drop superfluous _utils from module names
+      * [46d6c1b] Make sanitize_version a private function
+      * [75eedb8] Add doctest for __sanitize_version() and build_tag()
+      * [4cd72bc] Add doctest for Command.__call__()
+      * [a4fd8eb] Add doctest for Command.call() and fix error in exception
+        handling revealed by the test.
+      * [edfe670] Add GitClone
+      * [2663f23] Make GitBranch remote branch aware
+      * [838b3f4] Make has_branch aware of remote branches
+  * tests:
+      * [6cbbddf] Add unit test for --help
+      * [52d9b5a] Fix testcase name
+  * [e4abaad] document changes so far
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 05 Sep 2009 16:06:11 +0200
+
+git-buildpackage (0.4.56) unstable; urgency=low
+
+  * [d6dae62] depend on devscripts >= 2.10.49 for --no-force-save-on-release
+    in dch.  (Closes: #541420)
+  * [080b1eb] make parameters for GitRepository.commits() optional
+  * [016318e] git-dch: use the last commit in which debian/changelog was
+    touched as starting point if no snapshot header was found. This can still
+    be overriden by using --since. Based on a patch by Felipe Sateler. 
+    (Closes: #511269)
+
+ -- Guido Günther <agx@sigxcpu.org>  Sat, 15 Aug 2009 19:24:23 +0200
+
+git-buildpackage (0.4.55) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [651f723] fix release
+  * [e1bdfdb] update Homepage:
+  * [8ea4747] add gbp-pq to examples (Closes: #537212)
+  * [bedacee] check for correct overlay usage
+  * [849c801] bump standards version
+  * [f636022] add --no-force-save-on-release so dch saves the changlog
+    even when there are no changes so we don't end up with UNRELEASED
+    when passing -R.
+
+  [ أحمد المحمودي ]
+  * [14915d9] make tar_toplevel safer
+  * [b86ddcc] add --git-overlay option (Closes: #411206)
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 30 Jul 2009 11:27:17 +0200
+
+git-buildpackage (0.4.54) unstable; urgency=low
+
+  [ Damyan Ivanov ]
+  * [b577f01] Unconfuse git-dch when commit message starts with "--"
+    (Closes: #531985)
+
+  [ Guido Günther ]
+  * [55a89e1] allow for uppercase characters in the version pattern and
+    in the package name if it's not a debian source package's name. Also
+    allow for ':' and '~' which are allowed accoring to Debian Policy.
+    Based on a patch by Felipe Sateler. (Closes: #531819)
+  * [882f971] check for snapshot mode when checking if we need to add a
+    new section. (Closes: #532583) - thanks to Ove Kaaven for sorting
+    this out
+  * [f80ee2e] fix one digit version numbers
+  * [5edecd9] + is a valid character in version numbers
+
+  [ Mehdi Dogguy ]
+  * [7de9f12] add filter-pristine-tar to filter upstream tarball before
+    passing it to pristine-tar (Closes: #520722)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 03 Jul 2009 16:16:41 +0200
+
+git-buildpackage (0.4.53) unstable; urgency=low
+
+  * [b772300] pass --pretty=medium to git show (Closes: #525969)
+  * [5ed3078] add commit argument to GitTag
+  * [129b3c4] add get_author_email that parses git config and
+              environment
+  * [9ed19e7] add --fast-import. This uses git-fast-import to import the
+              upstream tarball, speeds up imports of upstream tarballs by a
+              factor of two. This options is experimental and will become the
+              default once it got more testing. (Closes: #449075)
+
+ -- Guido Günther <agx@sigxcpu.org>  Sun, 03 May 2009 18:35:52 +0200
+
+git-buildpackage (0.4.52) unstable; urgency=low
+
+  * [a2e42cd] move to section vcs
+  * [2892e7f] document postbuild hook
+  * [66f1027] promote pristine-tar to Recommends:
+  * [54b9da0] fix missing argument in error message
+  * [3e4b08e] restore default signal handlers before subprocess.call, python
+              changes them to SIG_IGN. (Closes: #525411)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 24 Apr 2009 17:35:44 +0200
+
+git-buildpackage (0.4.51) unstable; urgency=low
+
+  * [74a0954] git-import-dsc: don't ignore --debian-branch on import into non
+    empty archives
+  * [abe7de4] store version without epoch and simplify version parsing
+  * [8d2c6bd] add get_arch returns dpkg's notion of the architecture
+  * [e4db34b] add postbuild hook can be used to e.g. run lintian.
+    (Closes: #521358)
+  * [829db7c] pass GBP_BUILD_DIR to the build command this allows hooks
+    to figure out where to copy back the build result. Adjust the
+    cowbuilder example accordingly.
+  * [eaacadf] bump standards version
+  * [d113a3b] let the version detection patter match debian policy
+    (Closes: #522888)
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 16 Apr 2009 11:47:27 +0200
+
+git-buildpackage (0.4.50) unstable; urgency=low
+
+  * [eceac16] be less strict on the spelling of boolean config file
+    options any capitalization of 'true' or 'false' as well as '0' and
+    '1' are allowed. (Closes: #517376)
+  * [94084b0] Skip all comments before looking for clean_msg (Closes: #518008)
+  * [e56c9f5] add git-builder cowbuilder example
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 05 Mar 2009 21:08:24 +0100
+
+git-buildpackage (0.4.49) unstable; urgency=low
+
+  * [4ddcd5c] gbp-posttag-push: fix for remote repos containing '.'
+  * [1e62d1a] Pass "-d" to debuild when run as cleaner. This way build-
+    deps don't have to be fulfilled in the source tree but only in the
+    build tree. (Closes: #516876)
+  * [660acbe] better document 'Closes:' tag (Closes: #516877)
+  * [e3b7610] simplify boolean option handling
+  * [1e1a1ca] add --no-pristine-tar (Closes: #517024)
+  * [600a16d] add --git-no-ignore-new
+  * [2fa0cc8] make --[no-]full a config file option
+  * [6ccd482] make --export a config file option
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 26 Feb 2009 13:48:50 +0100
+
+git-buildpackage (0.4.48) unstable; urgency=low
+
+  * [ae575e3] Add --export=WC to export the working copy into export-
+    dir. (Closes: #509138)
+  * [9f42e53] run git-cleaner with --git-ignore-new Makes running with
+    and without --git-ignore-new more consistent.
+  * [b8a35b4] docs: add --git-export=INDEX to the manual
+  * [47c8a38] docs: add --git-dont-purge to the manual
+  * [616bff3] docs: fix typo
+  * [15042e3] rename git-pbuilder to gbp-pbuilder
+  * [ffbb38a] add gbp-posttag-push example to examples/
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 23 Feb 2009 18:24:12 +0100
+
+git-buildpackage (0.4.47) unstable; urgency=low
+
+  * [b5a3215] export sha1, branch and tagname into the commit hooks
+    environment this makes it possible to push out that specific tag only
+  * [2be813e] document exported env vars and add example posttag hook
+  * [a498bdf] add GitRepository.rev_parse
+  * [28973fb] fix VCS-Browser URL
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 19 Feb 2009 20:37:49 +0100
+
+git-buildpackage (0.4.46) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [746d63b] fix typos (Closes: #510479) - thanks to Jonathan Wiltshire
+  * [07ceb2c] add Vcs-Browser
+
+  [ Dietmar Winkler ]
+  * [a92c398] documentation typo
+
+  [ Jonathan Wiltshire ]
+  * [a748f52] typo in docs/manpages/git-dch.sgml (Closes: 511096)
+
+  [ Guido Günther ]
+  * [5c8de27] handle dpkg-parsechangelog errors (Closes: #512765)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 23 Jan 2009 18:32:27 +0100
+
+git-buildpackage (0.4.45) unstable; urgency=low
+
+  [ Robie Basak ]
+  * [6f4af4a] Use name and email from git (Closes: #509867)
+
+  [ Guido Günther ]
+  * [b097286] document --no-sign-tags
+  * [6fe5985] add --no-git-author
+  * [7c2034c] add --no-sign-tags to git-import-{dsc,orig} too 
+    (Closes: #508889)
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 01 Jan 2009 20:11:16 +0100
+
+git-buildpackage (0.4.44) unstable; urgency=low
+
+  * [c54e6dc] help option cleanup (Closes: #505787)
+  * [45541fe] don't require bugnumbers to start with '#' - use the regex
+    from Debian policy instead
+  * [77a875c] move common help messages into config.py
+  * [9223997] allow to import into empty repositories this makes git-
+    import-dsc's behaviour finally consistent with git-import-orig
+    (Closes: #500458, #504075)
+  * [aacd04a] require python 2.5
+  * [54b9a3e] better descriptions
+  * [e806326] add --no-sign-tags (Closes: #508889)
+
+ -- Guido Günther <agx@sigxcpu.org>  Mon, 29 Dec 2008 00:29:43 +0100
+
+git-buildpackage (0.4.43) unstable; urgency=low
+
+  * [8b8c137] gather all invocations of dch in one function - fixes dch
+    failures due to missing quotes introduced by [7f24b98]
+  * [a328fa2] fix off by one introduced by not counting first_commit
+    when creating a new header in [7f24b98]
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 14 Nov 2008 14:12:04 +0100
+
+git-buildpackage (0.4.42) unstable; urgency=low
+
+  [ Guido Günther ]
+  * [b5e8691] debian/control: fix maintainer
+  * [ee9e51d] doc: mention cl2vcs
+  * [a0c03e1] doc: fix typo
+  * [0314acc] git-buildpacakge: use option groups
+  * [2d44dad] git-dch: merge sha and snapshot parameter
+
+  [ Felipe Sateler ]
+  * [7f24b98] git-dch: Don't include first UNRELEASED line - There's not much
+    point in keeping this line when either doing a release or when having a
+    snapshot header (nor does it help much if one invokes git-dch without
+    options). (Closes: #505400)
+
+  [ Guido Günther ]
+  * [a6f5472] git-import-orig: Don't fail on symlink creation (Closes: #502565)
+  * [b7f8efd] git-dch: add missing call to escape_commit
+
+ -- Guido Günther <agx@sigxcpu.org>  Thu, 13 Nov 2008 17:08:52 +0100
+
+git-buildpackage (0.4.41) unstable; urgency=low
+
+  * [8b15994] allow for another config file $REPO/debian/gbp.conf
+    (Closes: #502253)
+  * [1ef4e04] add repo.set_branch() to switch branches
+  * [d4d4580] use repo.set_branch()
+  * [245d5f1] add GbpNothingImported exception
+  * [c410c0b] switch back to original branch on empty imports 
+    (Closes: #504029, #504072)
+
+ -- Guido Günther <agx@sigxcpu.org>  Fri, 31 Oct 2008 10:28:47 +0100
+
+git-buildpackage (0.4.40) unstable; urgency=low
+
+  [ Guido Guenther ]
+  * [d87e2ab] fix typo (Closes: #500167) - thanks to Aleksej R.  Serdyukov
+  * [632c9b4] gbp.git_utils.GitRepository: make indentation more consistent
+  * [b1a2847] adjust is_clean for git 1.6 (Closes: #500238)
+  * [3332982] gbp.deb_utils.symlink_orig: remove superflous printout
+  * [fb6187f] silence parse_dsc and move sanity checks into DscFile
+
+  [ Kurt B. Kaiser ]
+  * [bbd9946] Force tarball symlink on second export to build-area
+    (Closes: #500498)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 02 Oct 2008 12:26:56 +0200
+
+git-buildpackage (0.4.39) unstable; urgency=low
+
+  [ Kurt B. Kaiser ]
+  * [ac30b9b] Don't buffer stdout; let git-bp messages print in-line
+    (Closes: #479846)
+
+  [ Guido Guenther ]
+  * [4da9954] git-import-dscs: likewise
+  * [2162ead] git-dch: demangle adding commits and sections
+  * [af70d4d] git-dch: improve wording
+  * [bbf5020] git-dch: more option grouping
+  * [3931f70] git-import-orig: print version number on failed imports
+  * [745fbf6] git-import-dsc: merge by default when importing into an existing archive
+    (Closes: #475571)
+  * [631c347] git-import-dsc.sgml: document --no-merge
+  * [2f46ba4] gbp: Don't honor .gitignore during replace_source_tree 
+    (Closes: #467504)
+  * [624bdc9] gbp: move replace_source_tree into GitRepository
+  * [519901e] gbp: add find_tag(branch)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 22 Sep 2008 20:55:07 +0200
+
+git-buildpackage (0.4.38) unstable; urgency=low
+
+  * [1623560] "git-commond" vs. "git command" cleanup (Closes: #497335)
+  * [0a34c3b] add --new-version
+  * [2a17687] document --new-version
+  * [fc67ac2] document short options and snapshot mode
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 08 Sep 2008 18:48:58 +0200
+
+git-buildpackage (0.4.37) unstable; urgency=low
+
+  * [d1ea39d] allow setting the bug-closing meta tag to look for this
+    way we can generate bug-closing entries for different BTSs such as
+    Debian or Launchpad.
+  * [0376265] document meta-closes
+  * [4da3586] fix commit order of GitRepository.commits() - we request
+    since..until but got until..since. This makes the order of changelog
+    entries generated by git-dch the same order as if git-dch would be
+    called individually for each commit.
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 30 Aug 2008 14:20:11 +0200
+
+git-buildpackage (0.4.36) unstable; urgency=low
+
+  * [64808df] Warn if we can't parse the changelog - without a changelog we
+    can't parse the package name. Without that we might end up with wrong
+    names on the pristine tar branch and with missing symlinks in tarball-dir.
+    Since this might be intentional we issue a warning only.
+  * [32b2e89] detect flat tar archives in git-import-dsc too
+  * [277581c] don't fail import on non rfc822 adressess in the dsc file
+    (Closes: #494753)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 12 Aug 2008 19:31:26 +0200
+
+git-buildpackage (0.4.35) unstable; urgency=low
+
+  * [e012d8b] add epoch parsing to DscFile (Closes: #493214)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 01 Aug 2008 19:32:01 +0200
+
+git-buildpackage (0.4.34) unstable; urgency=low
+
+  * [4ac0aa8] git-buildpackage: always symlink orig.tar.gz from tarball dir
+    (Closes: 490706)
+  * [fb94fea] git-buildpackage: print default export-dir on --help
+  * [ffeb40e] git-dch: escape backticks (`) (Closes: 491104)
+  * [4e398cc] git-dch: --auto and --since are incompatible
+  * [3537f24] git-dch: use option groups
+  * [18d8405] git-dch: split git-log options into a list (Closes: #479267)
+  * [044083f] docs: readd list import line (Closes: #488120)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 22 Jul 2008 00:29:49 -0230
+
+git-buildpackage (0.4.33) unstable; urgency=low
+
+  [ Adeodato Simó ]
+  * [35c92a4] git-import-orig: merge upstream by tag name instead of by
+    branch name.
+  * [f1ca044] command_wrappers.py: add a GitMerge wrapper class.
+
+  [ Guido Guenther ]
+  * [9bbd5d2] make symlink_orig's error message more helpful
+  * [26c0310] make no-dch configurable via gbp.conf
+  * [e6ce2df] bump standards version
+  * [45b060e] mention git-import-dscs
+  * [721068a] add "meta" to sample config file
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 26 Jun 2008 16:47:55 +0200
+
+git-buildpackage (0.4.32) unstable; urgency=low
+
+  * [217263e] Don't set the version number twice - makes sure git-import-dsc
+    doesn't use the Version: line from the message instead of the signature on
+    old PGP signatures (Closes: #486397)
+  * [063fab5] escape $s in commit messages so variable names like
+    $remote_fs don't get dropped silently. (Closes: #486447)
+  * [6008c37] don't try to cleanup in case of tag_only (Closes: #486398)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 16 Jun 2008 17:54:09 +0200
+
+git-buildpackage (0.4.31) unstable; urgency=low
+
+  * [bf8738f] add --git-tag-only (Closes: #485114)
+  * [b06bcf0] document git-import-dscs
+  * [c1deeb2] add epoch to dch call (Closes: #483718)
+  * [6640ac7] Fix typo (Closes: #484243)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 12 Jun 2008 16:53:45 +0200
+
+git-buildpackage (0.4.30) unstable; urgency=low
+
+  * [cc9c42a] Try harder to find/build the upstream tarball (Closes:
+    #482786)
+  * [e6dd31e] Help pristine-tar to find the branch name (Closes:
+    #481806)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 29 May 2008 13:24:51 +0200
+
+git-buildpackage (0.4.29) unstable; urgency=low
+
+  * [ce152d4] git-dch: include the commit id in the changelog entry
+  * [ad6ff99] git-dch: print default value of --meta
+  * [2c1c265] git-dch: avoid extra space before "(Closes: )"
+  * [6ddf168] add git-import-dscs (Closes: #471580)
+  * [2cfbf05] move dsc handling into deb_utils
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 17 May 2008 22:01:49 +0200
+
+git-buildpackage (0.4.28) unstable; urgency=low
+
+  * git-buildpackage: add --git-dont-purge to leave the exported build dir
+    intact (Closes: #479848) - thanks to Kurt B. Kaiser for the patch
+  * git-dch: make --meta a config file option
+  * git-import-orig: fix symlink creation
+  * docs: missing EOF (Closes: #479726) - thanks to Sedat Dilek
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 12 May 2008 18:03:47 +0200
+
+git-buildpackage (0.4.27) unstable; urgency=low
+
+  * make author parsing more robust  (Closes: #479263)
+  * fix --git-export  (Closes: #479147)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 04 May 2008 16:43:43 +0200
+
+git-buildpackage (0.4.26) unstable; urgency=low
+
+  * git-export=INDEX exports the index into git-export-dir
+    (Closes: #471568)
+  * make ignore-new a config file option  (Closes: #466900)
+  * build-depend on python-dateutil  (Closes: #477959)
+  * git-dch:
+      * use --no-auto-nmu
+      * error handling fixes
+  * depend on devscripts that has dch --no-auto-nmu
+  * gbp/config.py: make boolean options parsing more robust
+  * add a link to the online version of the manual
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 28 Apr 2008 16:36:44 +0200
+
+git-buildpackage (0.4.25) unstable; urgency=low
+
+  * create a symlink archive -> <package>_<version>.orig.tar.gz this makes
+    sure pristine_tar uses the correct filename for the orig.tar.gz.  (Closes:
+    #475316)
+  * fix unpack_orig error reporting by adding the missing imports
+  * fix "pristine-tar missing" error message
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 18 Apr 2008 11:33:46 +0200
+
+git-buildpackage (0.4.24) unstable; urgency=low
+
+  [ Adeodato Simó ]
+  * Make commits from git-import-dsc get author and date from
+    debian/changelog.
+
+  [ Guido Guenther ]
+  * add rfc822_date_to_git() this function converts a date in RFC822
+    format to a string 'seconds_since_epoch tz' that can be used for eg.
+    GIT_AUTHOR_DATE.
+  * better handle broken dsc files
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 14 Apr 2008 14:39:37 +0200
+
+git-buildpackage (0.4.23) unstable; urgency=low
+
+  [ Frank S. Thomas ]
+  * docs/manpages/*.sgml: Use the citerefentry for references to other
+    manpages.
+  * Do not list the --upstream-version option twice in the synopsis
+    section of git-import-orig's manpage. (Closes: #472496)
+
+  [ Guido Guenther ]
+  * don't pass nonexisting branches to pristine-tar (Closes: #475554)
+  * doc cleanups (Closes: 473610):
+  	* mention the html manual in the manpages
+  	* reference pristine-tar
+  	* filter uses glob
+  	* move conffiles section into separate sgml file
+  * fix doc-base section
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 11 Apr 2008 19:18:08 +0200
+
+git-buildpackage (0.4.22) unstable; urgency=low
+
+  * git-dch: don't skip meta tags without --force
+  * gbp: git-core 1.5.3.4 doesn't support -q so use --quiet instead
+  * fix typos in documentation  (Closes: #471582) - thanks to Michael
+    Biebl
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 19 Mar 2008 18:03:20 +0100
+
+git-buildpackage (0.4.21) unstable; urgency=low
+
+  * allow meta tags in the commit logs
+  * add --full and --meta options --full (Closes: #468118)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 14 Mar 2008 20:42:53 +0100
+
+git-buildpackage (0.4.20) unstable; urgency=low
+
+  * add missing pngs (Closes: #469403)
+  * be more verbose on pbuilder (Closes: #469138)
+  * explain howto push tags and mention linda and lintian (Closes: #469436)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 06 Mar 2008 08:48:02 +0100
+
+git-buildpackage (0.4.19) unstable; urgency=low
+
+  * don't fail of the pristine-tar branch doesn't exist 
+    (Closes: #468675)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 01 Mar 2008 14:22:20 +0100
+
+git-buildpackage (0.4.18) unstable; urgency=low
+
+  * update documentation about git-import-dsc and --filter
+  * gbp/command_wrappers.py: make error messages more consistent
+  * git-import-dsc: don't throw a python exception on tag failures or non
+    existant branches
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 29 Feb 2008 18:05:40 +0100
+
+git-buildpackage (0.4.17) unstable; urgency=low
+
+  * make dsc import repeatable (Closes: #468120, #432082)
+  * drop now (due to git-apply) unneeded code
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 29 Feb 2008 16:09:47 +0100
+
+git-buildpackage (0.4.16) unstable; urgency=low
+
+  [ Guido Guenther ]
+  * speed up git-import-dsc by using git-apply (addresses parts of
+    #449075)
+  * update docs and gbp.conf with --filter and filter = [ ... ]
+
+  [ Harald Braumann ]
+  * allow multiple file filters for git-import-{orig,dsc} (Closes: #464653)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 24 Feb 2008 14:56:47 +0100
+
+git-buildpackage (0.4.15) unstable; urgency=low
+
+  * add (for now experimental) pristine-tar support based on a patch from
+    Julian Andres Klode (Closes: #463580)
+  * document pristine-tar options
+  * suggest pristine-tar
+  * don't use the deprecated git-* command versions
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 21 Feb 2008 16:25:33 +0100
+
+git-buildpackage (0.4.14) unstable; urgency=low
+
+  * correct several typos in the manual (Closes: #464582, #464583,
+    #464617)
+  * better dpkg-parsechangelog error reporting (Closes: #460195)
+  * document default tag formats (Closes: #464100)
+  * git-import-orig: detect flat tar archives (Closes: #463822)
+  * git-import-orig: add --no-dch options
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 08 Feb 2008 17:38:29 +0100
+
+git-buildpackage (0.4.13) unstable; urgency=low
+
+  * git-import-orig: don't fail when importing into empty git archives
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 28 Dec 2007 23:01:29 +0100
+
+git-buildpackage (0.4.12) unstable; urgency=low
+
+  * remove unused debian/dirs
+  * bump standards version
+  * add a homepage field
+  * add doc-base file (Closes: #457495)
+  * git-import-orig: fix doc url (Closes: #456535)
+  * use export-dir instead of build-area in gbp.conf because git-
+    buildpackage has no --git-build-area option - thanks to Frank S. Thomas
+    for the patch.
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 23 Dec 2007 20:35:45 +0100
+
+git-buildpackage (0.4.11) unstable; urgency=low
+
+  * --export-dir and --export are actually --git-export-dir and --git-
+    export (Closes: #456384) - thanks to Frank S. Thomas for the patch.
+  * don't start a new changelog section if we found a snapshot header
+    even when distribution != UNRELEASED
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 15 Dec 2007 17:16:34 +0100
+
+git-buildpackage (0.4.10) unstable; urgency=low
+
+  * git-ls-files: separate filenames by '\0', based on a patch from Uwe
+    Kleine-König <Uwe.Kleine-Koenig@digi.com> (Closes: #454470)
+  * git-import-dsc: return non null on failure 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 07 Dec 2007 23:19:39 +0100
+
+git-buildpackage (0.4.9) unstable; urgency=low
+
+  * fix "gpb gets confused by color enabled on branches..." - thanks to
+    Niv Sardi for the patch (Closes: #452921)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 26 Nov 2007 17:22:48 +0100
+
+git-buildpackage (0.4.8) unstable; urgency=low
+
+  * git-buildpacakge: make sure we don't switch directories during build
+    (Closes: #451550)
+  * debian/control: use the now official Vcs-Git 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 19 Nov 2007 18:50:08 +0100
+
+git-buildpackage (0.4.7) unstable; urgency=low
+
+  * add tarball-dir option losely based on patch from Sjoerd Simons
+    (Closes: #448357)
+  * don't print a commit summary when importing into empty repos
+    (addresses parts of #449075)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 05 Nov 2007 20:09:15 +0100
+
+git-buildpackage (0.4.6) unstable; urgency=low
+
+  * fix url (Closes: #448350)
+  * call gzip with "-n" (Closes: #449094) - thanks to Romain Francoise
+  * add .gitignore 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 04 Nov 2007 16:20:36 +0100
+
+git-buildpackage (0.4.5) unstable; urgency=low
+
+  * git-import-orig: fix missing s/upstream/upstream_branch/ rename
+    (Closes: #447920) - Thanks to Arnaud Cornet
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 24 Oct 2007 22:56:24 +0200
+
+git-buildpackage (0.4.4) unstable; urgency=low
+
+  * git-buildpackage: use upstream-branch in case the tag doesn't exist
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 22 Oct 2007 17:00:12 +0200
+
+git-buildpackage (0.4.3) experimental; urgency=low
+
+  * git-dch: properly quote "" (Closes: #447211)
+  * git-dch: use Command() instead of implementing it again
+  * documentation updates
+  * don't split up the manual that much (local.dsl taken from
+    darcs-buildpackage)
+  * add version number to docs and a tools (--version)
+  * pylint and other consistency updates
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 19 Oct 2007 10:12:40 +0200
+
+git-buildpackage (0.4.2) experimental; urgency=low
+
+  * git-dch:
+       * make --git-log a config file option
+       * git-dch: fix help message for --debian-branch
+       * doc: snapshot-number can be used in gbp.conf too
+  * git-buildpackage:
+       * add --git-export-dir=dir/, --git-export=treeish (Closes: #446042)
+       * allow to use any treeish object for --git-upstream-branch
+  * add missing examples to gbp.conf
+  * parse .gbp.conf in the repository directory (Closes: #426009)
+  * minor doc updates and clarifications
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 17 Oct 2007 00:00:13 +0200
+
+git-buildpackage (0.4.1) unstable; urgency=low
+
+  * make sure the changelog section's trailer points to the person
+    invoking git-dch
+  * depend on devscripts with a working 'dch ""'
+  * git-dch: eval() the snapshot number calculation
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 10 Oct 2007 18:15:54 +0200
+
+git-buildpackage (0.4.0) experimental; urgency=low
+
+  * add support for automatic snapshot releases as suggested by Ottavio
+    Salvador
+  * make git-dch actually useful:
+      * --auto: guess last changelogged commit from the snapshot header
+      * add short options for --snapshot and --release
+      * don't fail if the commit msg starts with '--'
+      * add a check for the debian branch instead of always using it as the
+        tip
+      * handle versions containing epochs
+      * add --git-log to pass options along to git-log
+      * allow to specify paths to look at: git-dch path1 path2 - useful if
+        upstream uses git
+  * add some basic documentation for git-dch
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 07 Oct 2007 15:32:40 +0200
+
+git-buildpackage (0.3.6) unstable; urgency=low
+
+  * create upstream branch when importing into an empty archive 
+    (Closes: #443305)
+  * detect upstream version from common tarball formats 
+    (Closes: #443306)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 03 Oct 2007 18:01:15 +0200
+
+git-buildpackage (0.3.5) unstable; urgency=low
+
+  * add a minimalistic git-dch that creates changelog entries from git commit
+    messages
+  * s/reopsitory/repository/ - thanks to Loïc Minier (Closes: #444702)
+  * update TODO
+  * short paragraph on hacking on arbitrary debian packages
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 03 Oct 2007 14:10:05 +0200
+
+git-buildpackage (0.3.4) unstable; urgency=low
+
+  * introduce --git-no-create-orig to skip building of any orig.tar.gz - this
+    is especially usefull if you're working on an NMU that has a X-0.Y version
+    number although it's a Debian native package
+  * fix the error path in case the tgz can't be unpacked
+  * git-pbuilder: add filter for git meta data and allow to pass options to
+    pbuilder vi $PBUILDER_OPTS (Closes: #439535)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 08 Sep 2007 20:40:36 +0200
+
+git-buildpackage (0.3.3) unstable; urgency=low
+
+  * git-buildpackage: don't hardcode -i\.git -I.git as build arguments
+    (Closes: #438669)
+  * git-import-dsc: support --debian-branch (Closes: #432084)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 20 Aug 2007 19:22:24 +0200
+
+git-buildpackage (0.3.2) unstable; urgency=low
+
+  * git-import-orig: allow to import into an empy git repository
+  * docs: we don't use git_load_dirs internally anymore 
+  * docs: howto start a package from scratch
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 27 Jun 2007 04:06:33 +0300
+
+git-buildpackage (0.3.1) unstable; urgency=low
+
+  * don't fail imports on large archives 
+  * print a sensible error message, when a git repository isn't a debian
+    source package
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 11 Jun 2007 18:06:15 +0200
+
+git-buildpackage (0.3.0) unstable; urgency=low
+
+  * don't use git_load_dirs for imports, this addresses:
+      * upstream directory removal (#423363)
+      * empty dirs and files not under version control (#409606)
+      * filtering out of files (Closes: #425986)
+      * importing of an empty .diff.gz (like libx86 0.99-1.2)
+  * doc: remove stray ';' from special.sgml. Thanks to Loïc Minier
+  * doc: gbp.conf is per working copy, not per repository
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon, 28 May 2007 03:19:32 +0200
+
+git-buildpackage (0.2.31) unstable; urgency=low
+
+  * git-import-orig: rename --upstreamversion to --upstream-version, to match
+    the documentation and the other --upstream-* options
+  * add several missing options to manpages and documentation
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 24 May 2007 09:38:35 +0200
+
+git-buildpackage (0.2.30) unstable; urgency=low
+
+  * fix changelog upstream version parsing (Closes: #425615)
+  * git-import-orig: allow to import from an unpacked source tree
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 24 May 2007 06:19:06 +0200
+
+git-buildpackage (0.2.29) unstable; urgency=low
+
+  * git-import-orig: more specific error message, when the merge merge fails
+    (Closes: #424036)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 15 May 2007 23:55:07 +0200
+
+git-buildpackage (0.2.28) unstable; urgency=low
+
+  * git-import-orig: support import of tar.bz2 (Closes: #423254)
+  * type fixes by Aurélien GÉRÔME. Thanks! (Closes: #422171)
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 13 May 2007 14:13:00 +0200
+
+git-buildpackage (0.2.27) unstable; urgency=low
+
+  * git_load_dirs now supports --summary, use this for nicer import messages
+  * bump versioned dependency on git-load-dirs therefore
+  * improve tagging messages
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 12 Apr 2007 18:25:40 +0200
+
+git-buildpackage (0.2.26) unstable; urgency=low
+
+  * use GbpError everywhere
+  * move commands into a submodule
+  * git-import-orig: pass --verbose on to git_load_dirs
+  * use default python version in setup.py
+  * depend on a git that has the "removed files left in working copy after
+    merge" bug (#410325)
+  * adjust to new output of git-status in git 1.5
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 27 Feb 2007 19:11:06 +0100
+
+git-buildpackage (0.2.25) unstable; urgency=low
+
+  * posttag support for git-buildpackage: use --git-posttag to run a command
+    after a successfull build and tag (e.g. --git-posttag='git-push --tags
+    git.alioth.org')
+  * repositories that weren't created by git-import-dsc and never had the
+    upstream sources as a single commit (let alone an upstream branch) can be
+    made git-import-orig compatible by using git's grafts - mention this in
+    the manual. This (Closes: #403988) since with this every git repo can use
+    git-import-orig (with some preparation).
+  * Allow to specify the tag format. The format of generated tags can now be
+    specified via the debian-tag and upsteam-tag options. The default now puts
+    debian tags and upstream tags into different namespaces (Closes: #408990).
+  * add example for pbuilder
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri,  2 Feb 2007 16:26:52 +0100
+
+git-buildpackage (0.2.24) unstable; urgency=low
+
+  * add XS-Vcs-Git
+  * fix error message in case the upstream branch doesn't exist
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat, 13 Jan 2007 22:05:23 +0100
+
+git-buildpackage (0.2.23) unstable; urgency=low
+
+  * depend on gtk-doc-tools, sgml2x and jade (Closes: #404673)
+  * use docbook-utils insted of docbook-to-man
+  * docbook updates
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 29 Dec 2006 18:18:50 +0100
+
+git-buildpackage (0.2.22) unstable; urgency=low
+
+  * git-buildpackage: check if upstream branch exists
+  * git-import-dsc: improve error handling
+  * add GitRepository class
+  * make pylint a bit happier
+  * update manpages
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 26 Dec 2006 00:27:44 +0100
+
+git-buildpackage (0.2.21) unstable; urgency=low
+
+  * While dpkg-buildpackage's -i argument takes a regexp -I doesn't - fix
+    inclusion of git metadata in debian native packages
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 22 Dec 2006 17:59:49 +0100
+
+git-buildpackage (0.2.20) unstable; urgency=low
+
+  * git-import-orig: improve error message when the upstream branch cannot be
+    found. We cannot create the branch automatically since on repositories
+    not created by git-import-dsc it's not clear where to branch from.
+    (Closes: #403990)
+  * remove pointless patch arguments from most of the git helper functions
+  * add some more documentation
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 22 Dec 2006 17:30:11 +0100
+
+git-buildpackage (0.2.19) unstable; urgency=low
+
+  * git-buildpackage: add an option (--git-cleaner) that allows to specify
+    a different clean command (Closes: #403987)
+  * depend on a git-core that has git-archive
+  * s/keyid/GPG keyid/
+  * minor fixes all over the place
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 21 Dec 2006 15:18:40 +0100
+
+git-buildpackage (0.2.18) experimental; urgency=low
+
+  * git-buildpackage: detect the branch we're on and bail out if it's not the
+    debian branch 
+  * doc updates
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 10 Dec 2006 14:57:35 +0100
+
+git-buildpackage (0.2.17) experimental; urgency=low
+
+  * fix wrong default debian branch
+  * git-buildpackage: fix typo in git-ignore-new
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sat,  9 Dec 2006 13:22:33 +0100
+
+git-buildpackage (0.2.16) experimental; urgency=low
+
+  * git-buildpackage: properly pass builder args
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri,  8 Dec 2006 17:13:32 +0100
+
+git-buildpackage (0.2.15) experimental; urgency=low
+
+  * git-buildpackage now supports signed tags via the "sign-tag" and "keyid"
+    options. This allows us to have a nice "trustable" history. See:
+         http://www.kernel.org/pub/software/scm/git/docs/
+    on how this ensured.
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed,  6 Dec 2006 22:04:41 +0100
+
+git-buildpackage (0.2.14) experimental; urgency=low
+
+  * config file parsing to set default branches and build commands
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue,  5 Dec 2006 19:36:41 +0100
+
+git-buildpackage (0.2.13) experimental; urgency=low
+
+  * fix typos in 'git-buildpackage -v'
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun,  3 Dec 2006 22:27:11 +0100
+
+git-buildpackage (0.2.12) experimental; urgency=low
+
+  * upload to experimental (Closes: #389710)
+  * bump dependency on git-load-dirs again
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu, 30 Nov 2006 09:47:33 +0100
+
+git-buildpackage (0.2.11) git-buildpackage; urgency=low
+
+  * git-buildpackage: use pipes module instead of os.system
+  * git-import-orig: fix printout of branch name 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 28 Nov 2006 16:33:54 +0100
+
+git-buildpackage (0.2.10) git-buildpackage; urgency=low
+
+  * build an orig.tar.gz if nones there
+
+ -- Guido Guenther <agx@sigxcpu.org>  Sun, 19 Nov 2006 14:17:40 +0100
+
+git-buildpackage (0.2.9) git-buildpackage; urgency=low
+
+  * depend on a fixed git-load-dirs that contains the git_load_dirs executable
+  * git-import-dsc: fix importing debian native packages 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 14 Nov 2006 12:39:26 +0100
+
+git-buildpackage (0.2.8) git-buildpackage; urgency=low
+
+  * sanitze_version: strip of epochs
+  * don't use a regexp for version parsing on import
+  * minor cosmetic cleanups all over the place
+  * README: no need to mention git-load-dirs anymore, it's in unstable now.
+    Thanks John.
+  * git-import-orig: implement "--no-merge"
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed,  8 Nov 2006 10:36:55 +0100
+
+git-buildpackage (0.2.7) git-buildpackage; urgency=low
+
+  * more robust regex matching 
+  * sanitize all version numbers before running git-tag
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri,  6 Oct 2006 18:40:12 +0200
+
+git-buildpackage (0.2.6) git-buildpackage; urgency=low
+
+  * run pychecker during build
+  * also filter out git metadata when building tarballs, not only when
+    building diffs (affects Debian native packages)
+  * git-import-dsc: allow for '+' in Debian as well as upstream version
+    numbers
+  * check if we're at the top level of a git repository before starting the
+    build
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu,  5 Oct 2006 19:46:23 +0200
+
+git-buildpackage (0.2.5) git-buildpackage; urgency=low
+
+  * fix syntax error in tag replacement
+  * minor manpage reformating 
+  * cleanup generated manpage.* files
+
+ -- Guido Guenther <agx@sigxcpu.org>  Thu,  5 Oct 2006 11:21:01 +0200
+
+git-buildpackage (0.2.4) git-buildpackage; urgency=low
+
+  * add manpages 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed,  4 Oct 2006 19:39:13 +0200
+
+git-buildpackage (0.2.3) git-buildpackage; urgency=low
+
+  * git doesn't like '~' in tag names so replace this with a dot when tagging 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Mon,  2 Oct 2006 18:30:20 +0200
+
+git-buildpackage (0.2.2) git-buildpackage; urgency=low
+
+  * git-import-dsc: don't fail if the dsc is a plain filename without a
+    directory component
+  * git-buildpackage: add --git-verbose option
+  * git-import-{orig,dsc}: allow to set the name of the upstream branch 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Fri, 29 Sep 2006 19:08:08 +0200
+
+git-buildpackage (0.2.1) git-buildpackage; urgency=low
+
+  * git-import-orig: don't try import new upstream versions when there
+    are uncommitted changes
+  * git-buildpackage: use helpers from git_buildpackage 
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 27 Sep 2006 12:15:47 +0200
+
+git-buildpackage (0.2) git-buildpackage; urgency=low
+
+  * git-import-dsc: import of debian native packages
+
+ -- Guido Guenther <agx@sigxcpu.org>  Wed, 27 Sep 2006 00:40:46 +0200
+
+git-buildpackage (0.01) unstable; urgency=low
+
+  * Initial release
+
+ -- Guido Guenther <agx@sigxcpu.org>  Tue, 12 Sep 2006 14:55:57 +0200
