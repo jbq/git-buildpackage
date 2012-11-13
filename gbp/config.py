@@ -68,6 +68,7 @@ class GbpOptionParser(OptionParser):
                  'posttag'         : '',
                  'postbuild'       : '',
                  'prebuild'        : '',
+                 'postexport'      : '',
                  'postimport'      : '',
                  'debian-tag'      : 'debian/%(version)s',
                  'upstream-tag'    : 'upstream/%(version)s',
