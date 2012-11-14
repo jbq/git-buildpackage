@@ -1,3 +1,9 @@
+git-buildpackage (0.5.19ubuntu2) stable; urgency=low
+
+  * Add postexport hook
+
+ -- Jean-Baptiste Quenot <jbq@nomao.com>  Wed, 14 Nov 2012 11:04:16 +0100
+
 git-buildpackage (0.5.19ubuntu1) natty; urgency=low
 
   * Merge from debian unstable. Remaining changes:
